@@ -1,0 +1,18 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SmolCam" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+
+        <!-- Add this line to change the status bar color -->
+        <item name="android:statusBarColor">@color/screen_background</item>
+        <!-- Add this line to make status bar icons dark -->
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+    </style>
+    <style name="Theme.SmolCam.Fullscreen" parent="Theme.SmolCam">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="Theme.SmolCam" parent="Base.Theme.SmolCam" />
+</resources>

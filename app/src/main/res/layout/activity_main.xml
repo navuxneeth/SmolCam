@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    tools:context=".MainActivity">
+
+    <!-- ... (Camera Preview CardView and its contents remain the same) ... -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/camera_preview_card"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/controls_animator">
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/background_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@drawable/camera_preview_background" />
+
+            <ImageView
+                android:id="@+id/grain_overlay_image_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.0"
+                android:scaleType="centerCrop"
+                android:src="@drawable/grain_background" />
+
+            <View
+                android:id="@+id/grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/grid"
+                android:visibility="visible" />
+
+            <View
+                android:id="@+id/flash_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.0"
+                android:background="@color/white" />
+
+            <ImageView
+                android:id="@+id/arrow_button"
+                android:layout_width="44dp"
+                android:layout_height="32dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/arrowbutton" />
+
+            <ImageView
+                android:id="@+id/grid_button"
+                android:layout_width="44dp"
+                android:layout_height="32dp"
+                android:layout_gravity="end"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:src="@drawable/gridbutton" />
+
+        </FrameLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ViewAnimator
+        android:id="@+id/controls_animator"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/camera_preview_card"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_actions">
+
+        <include layout="@layout/controls_manual" />
+        <include layout="@layout/controls_filter" />
+
+    </ViewAnimator>
+
+
+    <LinearLayout
+        android:id="@+id/bottom_actions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:background="@drawable/rounded_background"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingHorizontal="24dp"
+        android:paddingVertical="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/toggle_controls_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/filterbutton"
+            app:tint="@color/off_white" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <FrameLayout
+            android:id="@+id/shutter_button"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:background="@drawable/shutter_button_background" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <ImageButton
+            android:id="@+id/swap_background_button"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_camera_switch"
+            app:tint="@color/off_white" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

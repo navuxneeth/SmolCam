@@ -1,0 +1,58 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/filter_controls_root"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_background_offwhite"
+    android:orientation="vertical"
+    android:padding="24dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:src="@drawable/saturationbutton"
+            app:tint="@color/slider_icon_color" />
+
+        <SeekBar
+            android:id="@+id/saturation_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="50"
+            android:progressTint="@color/slider_orange"
+            android:thumbTint="@color/slider_orange" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:src="@drawable/grainbutton"
+            app:tint="@color/slider_icon_color" />
+
+        <SeekBar
+            android:id="@+id/grain_slider"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_weight="1"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="@color/slider_orange"
+            android:thumbTint="@color/slider_orange" />
+    </LinearLayout>
+</LinearLayout>

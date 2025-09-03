@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_background_offwhite"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingTop="24dp"
+    android:paddingBottom="12dp">
+
+    <!-- This is our new custom view -->
+    <com.example.smolcam.InteractiveSliderView
+        android:id="@+id/interactive_slider"
+        android:layout_width="match_parent"
+        android:layout_height="60dp" />
+
+    <LinearLayout
+        android:id="@+id/setting_pills_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <!-- Buttons will be added here dynamically from MainActivity.kt -->
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/screen_background"
+    tools:context=".GalleryActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/gallery_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="4dp"
+        android:clipToPadding="false"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:src="@drawable/bottomgradient"
+        android:scaleType="fitXY"
+        android:layout_gravity="bottom"/>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_camera"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="24dp"
+        android:src="@mipmap/ic_launcher"
+        app:backgroundTint="@color/off_white"
+        app:tint="@color/slider_icon_color"
+        app:elevation="8dp"
+        app:fabCustomSize="80dp"
+        app:maxImageSize="40dp"
+        app:shapeAppearanceOverlay="@style/FabShape" />
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

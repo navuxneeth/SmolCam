@@ -42,6 +42,7 @@ Full-Screen Image Viewer: Tap on any photo in the gallery to view it in a full-s
 Elegant UI: A clean, minimalist design with smooth animations and transitions.
 
 **Screenshots**
+
 (https://github.com/user-attachments/assets/eb64c445-5946-4fb3-a1d7-a3bd03dc16d6)
 
 (https://github.com/user-attachments/assets/43b8543a-54ad-4ce8-8aef-f42475ccfb64)

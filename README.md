@@ -60,9 +60,9 @@ Elegant UI: A clean, minimalist design with smooth animations and transitions.
 (https://github.com/user-attachments/assets/9ef7373b-97bd-4553-b2a7-84ae1738fd25)
 
 
-**How it works:**
-{
-1. High-Level Project Overview
+**Code Explanation:**
+
+**1. High-Level Project Overview**
 SmolCam is a mobile application for Android that simulates a camera interface with manual controls and image filters. It's designed to provide a tactile, retro-inspired user experience. The application has three main screens:
 
 Main Camera Screen (MainActivity): The primary interface where users can adjust camera settings, apply filters, and pretend to take pictures.
@@ -73,8 +73,7 @@ Image Viewer Screen (ImageViewerActivity): A fullscreen viewer to see gallery im
 
 The project is built using Kotlin, the modern, recommended language for Android development. It uses the standard Android SDK components and a few third-party libraries for enhanced functionality. The build system is Gradle.
 
-2. Project Structure and Configuration Files
-The files you provided represent a standard Android Studio project. Let's look at the key configuration files at the root level.
+**2. Project Structure and Configuration Files**
 
 .gitignore
 This file tells the version control system (Git) which files and directories to ignore. It's crucial for keeping the repository clean by excluding generated files, user-specific settings, and build outputs. For instance, it ignores the /build directory, local.properties (which contains local SDK paths), and .idea/ files (which store Android Studio's project settings).
@@ -105,7 +104,7 @@ This is a version catalog file, a modern way to manage dependencies and their ve
 gradlew & gradlew.bat
 These are the Gradle Wrapper scripts for Unix-like systems (gradlew) and Windows (gradlew.bat) respectively. They allow developers to build the project without having to install a specific version of Gradle manually. The wrapper automatically downloads and uses the version specified in gradle/wrapper/gradle-wrapper.properties.
 
-3. The app Module: Core of the Application
+**3. The app Module: Core of the Application**
 This is the main module containing all the application's code and resources.
 
 app/build.gradle.kts
@@ -144,7 +143,7 @@ This is the app's manifest file. It's the control panel for the Android operatin
 
 .ImageViewerActivity: Registered with a special Fullscreen theme to allow it to draw over the status and navigation bars.
 
-4. The User Interface: Layouts and Resources
+**4. The User Interface: Layouts and Resources**
 The entire visual aspect of SmolCam is defined in the res (resources) directory.
 
 Layout Files (app/src/main/res/layout)
@@ -202,7 +201,7 @@ themes.xml defines the overall look and feel of the app. It sets the base theme 
 
 styles.xml defines specific styles for individual views. For example, DefaultPillButton and SelectedPillButton define the appearance of the manual control buttons, allowing for easy reuse and consistency.
 
-5. Application Logic: The Kotlin Code
+**5. Application Logic: The Kotlin Code**
 This is where the app's behavior is implemented.
 
 MainActivity.kt
@@ -278,7 +277,6 @@ FullscreenImageAdapter.kt:
 A simple adapter for the ViewPager2.
 
 For each item, it inflates the item_fullscreen_image.xml layout and sets the image resource on the PhotoView. The PhotoView library then automatically handles all the complex logic for zooming and panning the image.
-}
 
 Thank you :)
 

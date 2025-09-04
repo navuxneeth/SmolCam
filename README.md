@@ -42,14 +42,22 @@ Full-Screen Image Viewer: Tap on any photo in the gallery to view it in a full-s
 Elegant UI: A clean, minimalist design with smooth animations and transitions.
 
 **Screenshots**
-(https://github.com/user-attachments/assets/f2df063b-c95e-4e65-b909-0bacfd91dd39)
-(https://github.com/user-attachments/assets/2e87d70e-f032-455b-a32b-e51dcea8dbab)
-(https://github.com/user-attachments/assets/7f07809e-e7e9-4e97-b12d-17bac32dbce4)
-(https://github.com/user-attachments/assets/ee5b30ce-9016-49d5-96fe-b2f93eb9026c)
-(https://github.com/user-attachments/assets/821fbfdd-bef5-4e95-986b-13159ab7ee6f)
-(https://github.com/user-attachments/assets/15121267-1ba7-4a43-ad46-7bbcccd4ba5c)
-(https://github.com/user-attachments/assets/cb96e139-81c0-4a2d-9c41-53775bf16456)
-(https://github.com/user-attachments/assets/6312e9a8-5104-4f50-b8e0-74198321a14d)
+(https://github.com/user-attachments/assets/eb64c445-5946-4fb3-a1d7-a3bd03dc16d6)
+
+(https://github.com/user-attachments/assets/43b8543a-54ad-4ce8-8aef-f42475ccfb64)
+
+(https://github.com/user-attachments/assets/c1558d1c-b9e0-4314-810b-1cc2ca28ab39)
+
+(https://github.com/user-attachments/assets/0e62b065-59a0-4b60-b9ce-c9e2f8aa7434)
+
+(https://github.com/user-attachments/assets/9ff5c49c-ce61-4538-98a7-61c71a31f3e8)
+
+(https://github.com/user-attachments/assets/74e17ba6-3e00-4bc6-bd85-83e194993dad)
+
+(https://github.com/user-attachments/assets/bd21cd02-2c55-435c-87c1-7be5086da14f)
+
+(https://github.com/user-attachments/assets/9ef7373b-97bd-4553-b2a7-84ae1738fd25)
+
 
 **How it works:**
 {

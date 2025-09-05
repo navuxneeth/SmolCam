@@ -4,11 +4,9 @@ SmolCam is a concept camera application that simulates manual camera controls in
 
 ## Screenshots
 
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/31179112-7d88-4218-ae2e-5eccfb752e99" />
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/86cea553-287e-4798-b89d-3061a29f1d10" />
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/14f386c2-1b83-4129-a8b9-c3c2087a8de3" />
-<img width="738" height="1600" alt="image" src="https://github.com/user-attachments/assets/7dd25922-d9a3-4d52-84ae-0fb48be4acaa" />
-<img width="391" height="840" alt="image" src="https://github.com/user-attachments/assets/ae50bb0e-d2b1-484b-8790-a15a8994256a" />
+<img width="2288" height="1600" alt="image" src="https://github.com/user-attachments/assets/f7516314-094f-4123-b1cf-0632902f9ac4" />
+<img width="4576" height="3200" alt="image" src="https://github.com/user-attachments/assets/c0cecdc2-5e9b-4848-a9a2-5c193dbc579c" />
+
 
 ## Features
 

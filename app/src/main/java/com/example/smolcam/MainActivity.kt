@@ -86,7 +86,6 @@ class MainActivity : AppCompatActivity() {
             binding.backgroundImageView.setImageResource(backgrounds[currentBackgroundIndex])
         }
 
-        // The OnClickListener is now solely responsible for triggering the animation.
         binding.shutterButton.setOnClickListener {
             playCaptureAnimation()
         }
@@ -94,10 +93,9 @@ class MainActivity : AppCompatActivity() {
         binding.arrowButton.setOnClickListener {
             val intent = Intent(this, GalleryActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
-        // **THE FINAL FIX**: This listener now ONLY handles the visual feedback.
-        // It returns false to allow the onClickListener to fire.
         binding.shutterButton.setOnTouchListener { view, event ->
             val layerDrawable = view.background as LayerDrawable
             val shadow = layerDrawable.findDrawableByLayerId(R.id.shutter_shadow)
@@ -114,7 +112,6 @@ class MainActivity : AppCompatActivity() {
                     }, 150)
                 }
             }
-            // Return false so the event is passed to the OnClickListener
             false
         }
     }
@@ -199,21 +196,16 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playCaptureAnimation() {
-        // 1. Flash Animation
         val flashAnimator = ObjectAnimator.ofFloat(binding.flashOverlay, "alpha", 0f, 1f, 0f).apply {
             duration = 400
             interpolator = AccelerateDecelerateInterpolator()
         }
-
-        // 2. "Blur" (Scale) Animation
         val scaleX = ObjectAnimator.ofFloat(binding.backgroundImageView, "scaleX", 1f, 1.1f, 1f).apply {
             duration = 400
         }
         val scaleY = ObjectAnimator.ofFloat(binding.backgroundImageView, "scaleY", 1f, 1.1f, 1f).apply {
             duration = 400
         }
-
-        // 3. Play them together
         val animatorSet = AnimatorSet()
         animatorSet.playTogether(flashAnimator, scaleX, scaleY)
         animatorSet.start()

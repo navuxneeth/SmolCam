@@ -99,7 +99,6 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:lineSpacingExtra="4dp"
-        android:text="Designed by Navaneeth\nMentored by Prof. Sumi Alice Saji\nInspired by HaHo Design System by Hristov\nCopyright @ 2025"
         android:textColor="?attr/smolCamOnSurfaceMuted"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@id/links_container"

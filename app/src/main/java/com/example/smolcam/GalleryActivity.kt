@@ -9,7 +9,7 @@ import com.example.smolcam.databinding.ActivityGalleryBinding
 class GalleryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGalleryBinding
-    private var currentTheme: String = "" // Variable to track the theme
+    private var currentTheme: String = ""
 
     private val allImages = listOf(
         R.drawable.camera_preview_background, R.drawable.background2, R.drawable.background3,
@@ -33,7 +33,6 @@ class GalleryActivity : AppCompatActivity() {
         binding = ActivityGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Store the theme that this activity was created with
         currentTheme = ThemeHelper.getSelectedTheme(this)
 
         binding.galleryRecyclerView.layoutManager =
@@ -46,18 +45,18 @@ class GalleryActivity : AppCompatActivity() {
             val intent = Intent(this, MainActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
 
         binding.fabSettings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
         }
     }
 
-    // ** FIX: Check for theme changes when returning to this activity **
     override fun onResume() {
         super.onResume()
-        // If the stored theme is different from the globally selected theme, recreate
         if (currentTheme != ThemeHelper.getSelectedTheme(this)) {
             recreate()
         }

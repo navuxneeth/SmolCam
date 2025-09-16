@@ -7,8 +7,6 @@ SmolCam is a concept camera application that simulates manual camera controls in
 <img width="1000" height="699" alt="image" src="https://github.com/user-attachments/assets/f7516314-094f-4123-b1cf-0632902f9ac4" />
 <img width="1000" height="699" alt="image" src="https://github.com/user-attachments/assets/c0cecdc2-5e9b-4848-a9a2-5c193dbc579c" />
 
-
-
 ## Features
 
 -   **Two Control Modes**: Seamlessly switch between Manual Mode and Filter Mode.
@@ -21,7 +19,8 @@ SmolCam is a concept camera application that simulates manual camera controls in
     -   **Saturation Slider**: Adjust the color intensity of your image in real-time.
     -   **Grain Overlay**: Add an atmospheric, film-like grain effect with adjustable intensity.
 -   **Built-in Gallery**: View your captured moments in a beautiful, staggered grid gallery.
--   **Full-Screen Image Viewer**: Tap on any photo in the gallery to view it in a full-screen, zoomable interface.
+-   **Full-Screen Image Viewer**: Tap on any photo in the gallery to view it in a full-screen, zoomable interface with pinch-to-zoom functionality.
+-   **Theme Customization**: Switch between "Original" and "Vibrant" themes to personalize the app's appearance.
 -   **Elegant UI**: A clean, minimalist design with smooth animations and transitions.
 
 ## How to Build
@@ -37,11 +36,12 @@ This is a standard Android Studio project.
 
 ### 1. High-Level Project Overview
 
-SmolCam is a mobile application for Android that simulates a camera interface with manual controls and image filters. It's designed to provide a tactile, retro-inspired user experience. The application has three main screens:
+SmolCam is a mobile application for Android that simulates a camera interface with manual controls and image filters. It's designed to provide a tactile, retro-inspired user experience. The application has four main screens:
 
 -   **Main Camera Screen (MainActivity)**: The primary interface where users can adjust camera settings, apply filters, and pretend to take pictures.
 -   **Gallery Screen (GalleryActivity)**: A screen that displays a collection of pre-defined images in a staggered grid.
 -   **Image Viewer Screen (ImageViewerActivity)**: A fullscreen viewer to see gallery images up close, with pinch-to-zoom functionality.
+-   **Settings Screen (SettingsActivity)**: A screen that allows users to customize the app's theme and view credits.
 
 The project is built using Kotlin, the modern, recommended language for Android development. It uses the standard Android SDK components and a few third-party libraries for enhanced functionality. The build system is Gradle.
 
@@ -87,7 +87,7 @@ This is the main module containing all the application's code and resources.
 -   **`app/src/main/AndroidManifest.xml`**
     This is the app's manifest file. It's the control panel for the Android operating system, declaring the app's components and requirements.
     -   **`<application>`**: Defines application-level properties like the icon, label (app name), theme, and backup rules.
-    -   **`<activity>`**: Declares each of the app's three activities. The `.MainActivity` has an `<intent-filter>` that designates it as the entry point of the application.
+    -   **`<activity>`**: Declares each of the app's four activities. The `.MainActivity` has an `<intent-filter>` that designates it as the entry point of the application.
 
 ### 4. The User Interface: Layouts and Resources
 
@@ -99,6 +99,7 @@ The entire visual aspect of SmolCam is defined in the `res` (resources) director
     -   **`activity_gallery.xml`**: Defines the gallery screen, using a `RecyclerView` to display images in a staggered grid.
     -   **`item_gallery_image.xml`**: Defines the layout for a single item in the gallery, crucial for the shared element transition animation.
     -   **`activity_image_viewer.xml` & `item_fullscreen_image.xml`**: Defines the fullscreen viewer using a `ViewPager2` and the `PhotoView` library for zoom functionality.
+    -   **`activity_settings.xml`**: Defines the settings screen, which includes options for changing the theme and viewing attribution information.
 
 -   **Drawable Resources (`app/src/main/res/drawable`)**
     This directory contains all visual assets, including vector drawables for icons, shape drawables for backgrounds and buttons, and bitmap images (PNG/JPG) for camera backgrounds and overlays.
@@ -107,6 +108,7 @@ The entire visual aspect of SmolCam is defined in the `res` (resources) director
     -   **`colors.xml`**: Defines the app's color palette for consistency.
     -   **`strings.xml`**: Contains all user-facing text strings for easy management and localization.
     -   **`styles.xml` & `themes.xml`**: Define the overall look and feel of the app, including base themes (for light and dark mode) and specific styles for individual UI components.
+    -   **`attrs.xml`**: Defines custom attributes used in themes.
 
 ### 5. Application Logic: The Kotlin Code
 
@@ -123,6 +125,12 @@ This is where the app's behavior is implemented.
 
 -   **`ImageViewerActivity.kt` & `FullscreenImageAdapter.kt`**
     These classes handle the fullscreen image viewing experience. The activity sets up a `ViewPager2` to allow swiping between images. The adapter populates the `ViewPager2` with `PhotoView` instances, which provides the pinch-to-zoom and pan functionality automatically.
+
+-   **`SettingsActivity.kt`**
+    This class manages the settings screen, allowing the user to switch between themes and access external links. It also handles the logic for recreating the activity when the theme is changed.
+
+-   **`ThemeHelper.kt`**
+    A helper object that manages theme-related logic, such as applying the selected theme to an activity and saving the user's preference to `SharedPreferences`.
 
 ## Credits
 

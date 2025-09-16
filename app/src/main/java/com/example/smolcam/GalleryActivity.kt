@@ -9,6 +9,7 @@ import com.example.smolcam.databinding.ActivityGalleryBinding
 class GalleryActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityGalleryBinding
+    private var currentTheme: String = "" // Variable to track the theme
 
     private val allImages = listOf(
         R.drawable.camera_preview_background, R.drawable.background2, R.drawable.background3,
@@ -27,10 +28,13 @@ class GalleryActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        ThemeHelper.applyTheme(this) // Apply theme
+        ThemeHelper.applyTheme(this)
         super.onCreate(savedInstanceState)
         binding = ActivityGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // Store the theme that this activity was created with
+        currentTheme = ThemeHelper.getSelectedTheme(this)
 
         binding.galleryRecyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
@@ -38,18 +42,24 @@ class GalleryActivity : AppCompatActivity() {
         val adapter = GalleryAdapter(allImages, imageTitles, imageDates)
         binding.galleryRecyclerView.adapter = adapter
 
-        // ** FIX: Relaunch MainActivity to apply theme changes **
         binding.fabCamera.setOnClickListener {
             val intent = Intent(this, MainActivity::class.java)
-            // These flags ensure we start a fresh version of the camera screen
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
             startActivity(intent)
         }
 
-        // Add listener for the new settings FAB
         binding.fabSettings.setOnClickListener {
             val intent = Intent(this, SettingsActivity::class.java)
             startActivity(intent)
+        }
+    }
+
+    // ** FIX: Check for theme changes when returning to this activity **
+    override fun onResume() {
+        super.onResume()
+        // If the stored theme is different from the globally selected theme, recreate
+        if (currentTheme != ThemeHelper.getSelectedTheme(this)) {
+            recreate()
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.example.smolcam
 
+import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.content.Intent
 import android.graphics.ColorMatrix
@@ -10,6 +11,7 @@ import android.os.Handler
 import android.os.Looper
 import android.view.MotionEvent
 import android.view.View
+import android.view.animation.AccelerateDecelerateInterpolator
 import android.widget.Button
 import android.widget.LinearLayout
 import android.widget.SeekBar
@@ -51,7 +53,6 @@ class MainActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        // ** This line is CRUCIAL and must be here **
         ThemeHelper.applyTheme(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -85,36 +86,36 @@ class MainActivity : AppCompatActivity() {
             binding.backgroundImageView.setImageResource(backgrounds[currentBackgroundIndex])
         }
 
+        // The OnClickListener is now solely responsible for triggering the animation.
         binding.shutterButton.setOnClickListener {
             playCaptureAnimation()
         }
 
-        // Navigate to the GalleryActivity
         binding.arrowButton.setOnClickListener {
             val intent = Intent(this, GalleryActivity::class.java)
             startActivity(intent)
         }
 
-        // Handle shutter button press and release for shadow effect
+        // **THE FINAL FIX**: This listener now ONLY handles the visual feedback.
+        // It returns false to allow the onClickListener to fire.
         binding.shutterButton.setOnTouchListener { view, event ->
             val layerDrawable = view.background as LayerDrawable
             val shadow = layerDrawable.findDrawableByLayerId(R.id.shutter_shadow)
 
             when (event.action) {
                 MotionEvent.ACTION_DOWN -> {
-                    shadow.alpha = 0 // Hide shadow
+                    shadow.alpha = 0
                     view.animate().scaleX(0.9f).scaleY(0.9f).setDuration(150).start()
                 }
                 MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
                     view.animate().scaleX(1f).scaleY(1f).setDuration(150).start()
-                    // Delay showing the shadow again to complete the effect
                     Handler(Looper.getMainLooper()).postDelayed({
-                        shadow.alpha = 255 // Show shadow
+                        shadow.alpha = 255
                     }, 150)
-                    view.performClick() // Ensure onClickListener is triggered
                 }
             }
-            true // We handled the touch event
+            // Return false so the event is passed to the OnClickListener
+            false
         }
     }
 
@@ -198,9 +199,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun playCaptureAnimation() {
-        ObjectAnimator.ofFloat(binding.flashOverlay, "alpha", 0f, 1f, 0f).apply {
-            duration = 500
-            start()
+        // 1. Flash Animation
+        val flashAnimator = ObjectAnimator.ofFloat(binding.flashOverlay, "alpha", 0f, 1f, 0f).apply {
+            duration = 400
+            interpolator = AccelerateDecelerateInterpolator()
         }
+
+        // 2. "Blur" (Scale) Animation
+        val scaleX = ObjectAnimator.ofFloat(binding.backgroundImageView, "scaleX", 1f, 1.1f, 1f).apply {
+            duration = 400
+        }
+        val scaleY = ObjectAnimator.ofFloat(binding.backgroundImageView, "scaleY", 1f, 1.1f, 1f).apply {
+            duration = 400
+        }
+
+        // 3. Play them together
+        val animatorSet = AnimatorSet()
+        animatorSet.playTogether(flashAnimator, scaleX, scaleY)
+        animatorSet.start()
     }
 }

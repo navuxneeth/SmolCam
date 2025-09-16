@@ -15,8 +15,7 @@
         android:layout_marginTop="16dp"
         android:src="@drawable/arrowbutton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="?attr/smolCamOnSurface" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/settings_title"
@@ -100,7 +99,7 @@
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:lineSpacingExtra="4dp"
-        android:text="Designed by Navaneeth\nInspired by HaHo Design System by Hristov\nCopyright @ 2025"
+        android:text="Designed by Navaneeth\nMentored by Prof. Sumi Alice Saji\nInspired by HaHo Design System by Hristov\nCopyright @ 2025"
         android:textColor="?attr/smolCamOnSurfaceMuted"
         android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@id/links_container"

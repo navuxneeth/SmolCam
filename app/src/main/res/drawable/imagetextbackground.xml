@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-  <!-- Shadow Layer -->
   <item>
     <shape>
       <padding
@@ -8,15 +7,13 @@
           android:right="1dp"
           android:bottom="2dp"
           android:left="1dp" />
-      <solid android:color="#1A000000" /> <!-- 10% black for shadow -->
-      <corners android:radius="12dp" />
+      <solid android:color="#1A000000" /> <corners android:radius="12dp" />
     </shape>
   </item>
 
-  <!-- Foreground Layer -->
   <item>
     <shape>
-      <solid android:color="@color/off_white" />
+      <solid android:color="?attr/smolCamSurface" />
       <corners android:radius="12dp" />
     </shape>
   </item>

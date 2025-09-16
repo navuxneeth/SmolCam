@@ -51,6 +51,8 @@ class MainActivity : AppCompatActivity() {
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        // ** This line is CRUCIAL and must be here **
+        ThemeHelper.applyTheme(this)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -87,7 +89,7 @@ class MainActivity : AppCompatActivity() {
             playCaptureAnimation()
         }
 
-        // Navigate to the new GalleryActivity
+        // Navigate to the GalleryActivity
         binding.arrowButton.setOnClickListener {
             val intent = Intent(this, GalleryActivity::class.java)
             startActivity(intent)

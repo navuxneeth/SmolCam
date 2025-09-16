@@ -8,6 +8,12 @@
     <color name="slider_icon_color">#2D504D</color>
     <color name="white">#FFFFFFFF</color>
     <color name="slider_orange">#F26B4B</color>
-    <!-- New Color for Date Text -->
     <color name="dark_grey">#8A8A8A</color>
+
+    <color name="yb_background">#FFFFFF</color>
+    <color name="yb_surface">#FFE227</color>
+    <color name="yb_primary">#3225F2</color>
+    <color name="yb_on_primary">#FFFFFF</color>
+    <color name="yb_on_surface">#000000</color>
+    <color name="yb_accent">#F26B4B</color>
 </resources>

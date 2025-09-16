@@ -9,6 +9,7 @@ class ImageViewerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityImageViewerBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeHelper.applyTheme(this) // Apply theme
         super.onCreate(savedInstanceState)
         binding = ActivityImageViewerBinding.inflate(layoutInflater)
         setContentView(binding.root)

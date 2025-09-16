@@ -7,7 +7,6 @@
     android:paddingTop="24dp"
     android:paddingBottom="12dp">
 
-    <!-- This is our new custom view -->
     <com.example.smolcam.InteractiveSliderView
         android:id="@+id/interactive_slider"
         android:layout_width="match_parent"
@@ -20,7 +19,6 @@
         android:layout_marginTop="12dp"
         android:gravity="center"
         android:orientation="horizontal">
-        <!-- Buttons will be added here dynamically from MainActivity.kt -->
     </LinearLayout>
 
 </LinearLayout>

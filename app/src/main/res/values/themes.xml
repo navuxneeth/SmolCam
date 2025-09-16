@@ -1,18 +1,36 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
     <style name="Base.Theme.SmolCam" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-
-        <!-- Add this line to change the status bar color -->
-        <item name="android:statusBarColor">@color/screen_background</item>
-        <!-- Add this line to make status bar icons dark -->
         <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
     </style>
+
+    <style name="Theme.SmolCam.Original" parent="Base.Theme.SmolCam">
+        <item name="smolCamScreenBackground">@color/screen_background</item>
+        <item name="smolCamSurface">@color/off_white</item>
+        <item name="smolCamPrimary">@color/bottom_controls_background</item>
+        <item name="smolCamOnPrimary">@color/off_white</item>
+        <item name="smolCamOnSurface">@color/dark_teal</item>
+        <item name="smolCamAccent">@color/accent_red</item>
+        <item name="smolCamOnSurfaceMuted">@color/dark_grey</item>
+        <item name="storageInfoDrawable">@drawable/storage_info_originaltheme</item>
+        <item name="android:statusBarColor">@color/screen_background</item>
+    </style>
+
+    <style name="Theme.SmolCam.YellowBlue" parent="Base.Theme.SmolCam">
+        <item name="smolCamScreenBackground">@color/yb_background</item>
+        <item name="smolCamSurface">@color/yb_surface</item>
+        <item name="smolCamPrimary">@color/yb_primary</item>
+        <item name="smolCamOnPrimary">@color/yb_on_primary</item>
+        <item name="smolCamOnSurface">@color/yb_on_surface</item>
+        <item name="smolCamAccent">@color/yb_accent</item>
+        <item name="smolCamOnSurfaceMuted">@color/dark_grey</item>
+        <item name="storageInfoDrawable">@drawable/storage_info_vibranttheme</item>
+        <item name="android:statusBarColor">@color/yb_background</item>
+    </style>
+
+    <style name="Theme.SmolCam" parent="Theme.SmolCam.Original" />
+
     <style name="Theme.SmolCam.Fullscreen" parent="Theme.SmolCam">
         <item name="android:windowTranslucentStatus">true</item>
         <item name="android:windowTranslucentNavigation">true</item>
     </style>
-
-    <style name="Theme.SmolCam" parent="Base.Theme.SmolCam" />
 </resources>

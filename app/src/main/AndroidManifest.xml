@@ -26,11 +26,14 @@
             android:name=".GalleryActivity"
             android:exported="false" />
 
-        <!-- Add this new activity registration -->
         <activity
             android:name=".ImageViewerActivity"
             android:exported="false"
             android:theme="@style/Theme.SmolCam.Fullscreen" />
+
+        <activity
+            android:name=".SettingsActivity"
+            android:exported="false" />
 
     </application>
 

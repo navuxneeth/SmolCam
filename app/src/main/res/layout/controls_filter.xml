@@ -17,7 +17,7 @@
             android:layout_width="28dp"
             android:layout_height="28dp"
             android:src="@drawable/saturationbutton"
-            app:tint="@color/slider_icon_color" />
+            app:tint="?attr/smolCamOnSurface" />
 
         <SeekBar
             android:id="@+id/saturation_slider"
@@ -27,8 +27,8 @@
             android:layout_weight="1"
             android:max="100"
             android:progress="50"
-            android:progressTint="@color/slider_orange"
-            android:thumbTint="@color/slider_orange" />
+            android:progressTint="?attr/smolCamAccent"
+            android:thumbTint="?attr/smolCamAccent" />
     </LinearLayout>
 
     <LinearLayout
@@ -42,7 +42,7 @@
             android:layout_width="32dp"
             android:layout_height="32dp"
             android:src="@drawable/grainbutton"
-            app:tint="@color/slider_icon_color" />
+            app:tint="?attr/smolCamOnSurface" />
 
         <SeekBar
             android:id="@+id/grain_slider"
@@ -52,7 +52,7 @@
             android:layout_weight="1"
             android:max="100"
             android:progress="0"
-            android:progressTint="@color/slider_orange"
-            android:thumbTint="@color/slider_orange" />
+            android:progressTint="?attr/smolCamAccent"
+            android:thumbTint="?attr/smolCamAccent" />
     </LinearLayout>
 </LinearLayout>

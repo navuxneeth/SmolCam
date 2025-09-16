@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <attr name="smolCamScreenBackground" format="color" />
+    <attr name="smolCamSurface" format="color" />
+    <attr name="smolCamPrimary" format="color" />
+    <attr name="smolCamOnPrimary" format="color" />
+    <attr name="smolCamOnSurface" format="color" />
+    <attr name="smolCamAccent" format="color" />
+    <attr name="smolCamOnSurfaceMuted" format="color" />
+
+    <attr name="storageInfoDrawable" format="reference" />
+</resources>

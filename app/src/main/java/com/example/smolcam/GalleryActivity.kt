@@ -1,5 +1,6 @@
 package com.example.smolcam
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
@@ -16,17 +17,17 @@ class GalleryActivity : AppCompatActivity() {
     )
 
     private val imageTitles = listOf(
-        "Pink Clouds", "Blue Sky", "Deep Forest", "Misty Mountains",
-        "Golden Hour", "City Lights", "Beach Sunset", "Winter Snow", "Desert Sands"
+        "Pink Clouds", "Misty Morning", "Warm Nights", "Cozy Study",
+        "Autumn River", "City Crossing", "Retro Vibe", "Vintage Roadtrip", "Yellow Door"
     )
 
-    // New list of dates
     private val imageDates = listOf(
         "7th Sep 2025", "7th Sep 2025", "8th Sep 2025", "8th Sep 2025",
         "8th Sep 2025", "9th Sep 2025", "9th Sep 2025", "9th Sep 2025", "9th Sep 2025"
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        ThemeHelper.applyTheme(this) // Apply theme
         super.onCreate(savedInstanceState)
         binding = ActivityGalleryBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -34,12 +35,21 @@ class GalleryActivity : AppCompatActivity() {
         binding.galleryRecyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
 
-        // Pass the new dates list to the adapter
         val adapter = GalleryAdapter(allImages, imageTitles, imageDates)
         binding.galleryRecyclerView.adapter = adapter
 
+        // ** FIX: Relaunch MainActivity to apply theme changes **
         binding.fabCamera.setOnClickListener {
-            finish()
+            val intent = Intent(this, MainActivity::class.java)
+            // These flags ensure we start a fresh version of the camera screen
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+            startActivity(intent)
+        }
+
+        // Add listener for the new settings FAB
+        binding.fabSettings.setOnClickListener {
+            val intent = Intent(this, SettingsActivity::class.java)
+            startActivity(intent)
         }
     }
 }

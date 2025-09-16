@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?attr/smolCamScreenBackground"
+    tools:context=".SettingsActivity">
+
+    <ImageView
+        android:id="@+id/back_button"
+        android:layout_width="44dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:src="@drawable/arrowbutton"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:tint="?attr/smolCamOnSurface" />
+
+    <TextView
+        android:id="@+id/settings_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Settings"
+        android:textColor="?attr/smolCamOnSurface"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/back_button" />
+
+    <LinearLayout
+        android:id="@+id/theme_options"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/rounded_background_offwhite"
+        android:orientation="vertical"
+        android:padding="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/settings_title">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:text="Change Theme"
+            android:textColor="?attr/smolCamOnSurface"
+            android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/theme_original_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Original (Green &amp; Cream)"
+            android:textColor="?attr/smolCamOnPrimary"
+            android:backgroundTint="?attr/smolCamPrimary" />
+
+        <Button
+            android:id="@+id/theme_yellow_blue_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Vibrant (Yellow &amp; Blue)"
+            android:textColor="@color/yb_on_surface"
+            android:backgroundTint="@color/yb_surface" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/storage_panel"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        app:cardBackgroundColor="?attr/smolCamSurface"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/theme_options">
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="?attr/storageInfoDrawable" />
+
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@+id/attribution_text"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:gravity="center"
+        android:lineSpacingExtra="4dp"
+        android:text="Designed by Navaneeth\nInspired by HaHo Design System by Hristov\nCopyright @ 2025"
+        android:textColor="?attr/smolCamOnSurfaceMuted"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@id/links_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/links_container"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/contact_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="1"
+            android:text="Contact Designer" />
+
+        <Button
+            android:id="@+id/visit_haho_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:text="Visit HaHo System" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

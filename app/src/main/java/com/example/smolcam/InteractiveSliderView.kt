@@ -2,13 +2,15 @@ package com.example.smolcam
 
 import android.content.Context
 import android.graphics.Canvas
-import android.graphics.Color
 import android.graphics.DashPathEffect
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.TypedValue
 import android.view.MotionEvent
 import android.view.View
 import android.widget.OverScroller
+import androidx.annotation.AttrRes
+import androidx.core.content.ContextCompat
 import kotlin.math.roundToInt
 
 class InteractiveSliderView @JvmOverloads constructor(
@@ -30,30 +32,42 @@ class InteractiveSliderView @JvmOverloads constructor(
     private val itemSpacingPx = dpToPx(itemSpacingDp)
     private val totalItemWidthPx = itemWidthPx + itemSpacingPx
 
-    private val textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1E3C40") // Dark Teal
-        textSize = dpToPx(12f)
-        textAlign = Paint.Align.CENTER
-    }
+    private val textPaint: Paint
+    private val majorTickPaint: Paint
+    private val minorTickPaint: Paint
+    private val centerLinePaint: Paint
+    private val dottedLinePaint: Paint
 
-    private val majorTickPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1E3C40") // Dark Teal
-        strokeWidth = dpToPx(2f)
-    }
+    init {
+        val onSurfaceColor = getThemeColor(R.attr.smolCamOnSurface)
+        val accentColor = getThemeColor(R.attr.smolCamAccent)
 
-    private val minorTickPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#1E3C40") // Dark Teal
-    }
+        textPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = onSurfaceColor
+            textSize = dpToPx(12f)
+            textAlign = Paint.Align.CENTER
+        }
 
-    private val centerLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#D95D4A") // Accent Red
-        strokeWidth = dpToPx(2f)
-    }
+        majorTickPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = onSurfaceColor
+            strokeWidth = dpToPx(2f)
+        }
 
-    private val dottedLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
-        color = Color.parseColor("#801E3C40") // Dark Teal with alpha
-        strokeWidth = dpToPx(1f)
-        pathEffect = DashPathEffect(floatArrayOf(dpToPx(2f), dpToPx(6f)), 0f)
+        minorTickPaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = onSurfaceColor
+        }
+
+        centerLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = accentColor
+            strokeWidth = dpToPx(2f)
+        }
+
+        dottedLinePaint = Paint(Paint.ANTI_ALIAS_FLAG).apply {
+            color = onSurfaceColor
+            alpha = 128 // 50% opacity
+            strokeWidth = dpToPx(1f)
+            pathEffect = DashPathEffect(floatArrayOf(dpToPx(2f), dpToPx(6f)), 0f)
+        }
     }
 
     var onValueChanged: ((String) -> Unit)? = null
@@ -155,5 +169,11 @@ class InteractiveSliderView @JvmOverloads constructor(
 
     private fun dpToPx(dp: Float): Float {
         return dp * resources.displayMetrics.density
+    }
+
+    private fun getThemeColor(@AttrRes attrRes: Int): Int {
+        val typedValue = TypedValue()
+        context.theme.resolveAttribute(attrRes, typedValue, true)
+        return ContextCompat.getColor(context, typedValue.resourceId)
     }
 }

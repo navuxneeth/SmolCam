@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/screen_background"
+    android:background="?attr/smolCamScreenBackground"
     tools:context=".MainActivity">
 
-    <!-- ... (Camera Preview CardView and its contents remain the same) ... -->
     <androidx.cardview.widget.CardView
         android:id="@+id/camera_preview_card"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="16dp"
+        app:cardBackgroundColor="?attr/smolCamScreenBackground"
         app:cardCornerRadius="12dp"
         app:cardElevation="0dp"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/controls_animator"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@+id/controls_animator">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <FrameLayout
             android:layout_width="match_parent"
@@ -81,10 +81,10 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_actions"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/camera_preview_card"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_actions">
+        app:layout_constraintTop_toBottomOf="@id/camera_preview_card">
 
         <include layout="@layout/controls_manual" />
         <include layout="@layout/controls_filter" />
@@ -112,7 +112,7 @@
             android:layout_height="32dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/filterbutton"
-            app:tint="@color/off_white" />
+            app:tint="?attr/smolCamOnPrimary" />
 
         <Space
             android:layout_width="0dp"
@@ -136,7 +136,7 @@
             android:layout_height="32dp"
             android:background="?attr/selectableItemBackgroundBorderless"
             android:src="@drawable/ic_camera_switch"
-            app:tint="@color/off_white" />
+            app:tint="?attr/smolCamOnPrimary" />
 
     </LinearLayout>
 

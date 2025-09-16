@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        app:cardBackgroundColor="@color/off_white"
+        app:cardBackgroundColor="?attr/smolCamSurface"
         app:cardCornerRadius="12dp"
         app:cardElevation="0dp">
 
@@ -39,7 +39,7 @@
                 android:id="@+id/gallery_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/dark_teal"
+                android:textColor="?attr/smolCamOnSurface"
                 android:textSize="16sp"
                 android:textStyle="normal" />
 
@@ -48,7 +48,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp"
-                android:textColor="@color/dark_grey"
+                android:textColor="?attr/smolCamOnSurfaceMuted"
                 android:textSize="12sp" />
 
         </LinearLayout>

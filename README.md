@@ -1,6 +1,7 @@
 # SmolCam
 
 SmolCam is a concept camera application that simulates manual camera controls in a clean, intuitive way. It's designed for those who appreciate the aesthetics of photography and enjoy having tactile control over their image settings.
+[There is an iOS version of this project being built, accessible at https://github.com/navuxneeth/SmolCam-iOS]
 
 ## Preview
 

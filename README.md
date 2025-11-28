@@ -150,5 +150,7 @@ This is where the app's behavior is implemented.
 
 -   **Built by Navaneeth Sankar K P** (https://www.linkedin.com/in/navaneeth-sankar-k-p).
 -   **Design Inspiration**: The user interface and overall aesthetic are inspired (initial brainstorming) by the beautiful design work of Hristo Hristov ([LinkedIn](https://www.linkedin.com/in/hristo-hristov-2bb0341a8)).
+-   <img width="577" height="730" alt="image" src="https://github.com/user-attachments/assets/2802d0d9-1e51-4186-8197-42abfa9a8b10" />
+
 -   **Professor**: A huge thanks to my professor, **Sumi Alice Saji** ([LinkedIn](https://www.linkedin.com/in/sumi-alice-saji-0a073679/)), for being patient and really tolerant in helping me learn and making this possible.
 -   **PhotoView**: This project uses the [PhotoView library](https://github.com/Baseflow/PhotoView) for the zoomable full-screen image viewer.
